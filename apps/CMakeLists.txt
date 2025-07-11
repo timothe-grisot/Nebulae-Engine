@@ -1,6 +1,12 @@
-set(EXECUTABLE_NAME "test")
-set(EXECUTABLE_SOURCES
+# Define executable
+set(EXE_NAME ${EXE_TEST})
+set(EXE_SOURCES
     test.cpp
 )
+set(EXE_DEPENDENCIES
+    ${LIB_CORE}
+)
 
-add_executable(test test.cpp)
+# Create executable
+add_executable(${EXE_NAME} ${EXE_SOURCES})
+target_link_libraries(${EXE_NAME} PRIVATE ${EXE_DEPENDENCIES})
