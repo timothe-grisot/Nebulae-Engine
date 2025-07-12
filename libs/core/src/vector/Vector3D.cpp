@@ -28,6 +28,10 @@ double Vector3D::mag() const {
 
 void Vector3D::normalize() {
     const double mag = this->mag();
+    if (mag == 0) {
+        this->set(0, 0, 0);
+        return;
+    }
     this->x /= mag;
     this->y /= mag;
     this->z /= mag;

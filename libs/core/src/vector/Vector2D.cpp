@@ -27,6 +27,10 @@ double Vector2D::mag() const {
 
 void Vector2D::normalize() {
     const double mag = this->mag();
+    if (mag == 0) {
+        this->set(0, 0);
+        return;
+    }
     this->x /= mag;
     this->y /= mag;
 }
