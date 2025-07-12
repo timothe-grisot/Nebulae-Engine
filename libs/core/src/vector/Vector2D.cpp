@@ -4,8 +4,16 @@
 
 namespace nebulae {
 
+double Vector2D::sqrMagnitude() const {
+    return Vector2D::dot(*this, *this);
+}
+
+double Vector2D::sqrMag() const {
+    return this->sqrMagnitude();
+}
+
 double Vector2D::magnitude() const {
-    return sqrt(pow(this->x, 2) + pow(this->y, 2));
+    return sqrt(this->sqrMag());
 }
 
 double Vector2D::mag() const {
@@ -24,8 +32,12 @@ Vector2D Vector2D::normalized() const {
     return normalized;
 };
 
-double Vector2D::distance(const Vector2D& v0, const Vector2D& v1) {
-    return sqrt(pow(v0.x - v1.x, 2) + pow(v0.y - v1.y, 2));
+double Vector2D::distance(const Vector2D& vec0, const Vector2D& vec1) {
+    return (vec0 - vec1).mag();
+}
+
+double Vector2D::dot(const Vector2D& vec0, const Vector2D& vec1) {
+    return vec0.x * vec1.x + vec0.y * vec1.y;
 }
 
 Vector2D& Vector2D::operator+=(const Vector2D& right) {
@@ -54,5 +66,10 @@ Vector2D& Vector2D::operator/=(const float& scalar) {
 
 const Vector2D Vector2D::ZERO = Vector2D();
 const Vector2D Vector2D::UNIT = Vector2D(1, 1);
+
+const Vector2D Vector2D::UP = Vector2D(1, 0);
+const Vector2D Vector2D::DOWN = Vector2D(-1, 0);
+const Vector2D Vector2D::LEFT = Vector2D(0, 1);
+const Vector2D Vector2D::RIGHT = Vector2D(0, -1);
 
 } // namespace nebulae

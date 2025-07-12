@@ -4,8 +4,16 @@
 
 namespace nebulae {
 
+double Vector3D::sqrMagnitude() const {
+    return Vector3D::dot(*this, *this);
+}
+
+double Vector3D::sqrMag() const {
+    return this->sqrMagnitude();
+}
+
 double Vector3D::magnitude() const {
-    return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
+    return sqrt(this->sqrMag());
 }
 
 double Vector3D::mag() const {
@@ -25,8 +33,12 @@ Vector3D Vector3D::normalized() const {
     return normalized;
 };
 
-double Vector3D::distance(const Vector3D& v0, const Vector3D& v1) {
-    return sqrt(pow(v0.x - v1.x, 2) + pow(v0.y - v1.y, 2) + pow(v0.z - v1.z, 2));
+double Vector3D::distance(const Vector3D& vec0, const Vector3D& vec1) {
+    return (vec0 - vec1).mag();
+}
+
+double Vector3D::dot(const Vector3D& vec0, const Vector3D& vec1) {
+    return vec0.x * vec1.x + vec0.y * vec1.y + vec0.z * vec1.z;
 }
 
 Vector3D& Vector3D::operator+=(const Vector3D& right) {
@@ -59,5 +71,12 @@ Vector3D& Vector3D::operator/=(const float& scalar) {
 
 const Vector3D Vector3D::ZERO = Vector3D();
 const Vector3D Vector3D::UNIT = Vector3D(1, 1, 1);
+
+const Vector3D Vector3D::UP = Vector3D(1, 0, 0);
+const Vector3D Vector3D::DOWN = Vector3D(-1, 0, 0);
+const Vector3D Vector3D::RIGHT = Vector3D(0, 1, 0);
+const Vector3D Vector3D::LEFT = Vector3D(0, -1, 0);
+const Vector3D Vector3D::FORWARD = Vector3D(0, 0, 1);
+const Vector3D Vector3D::BACKWARD = Vector3D(0, 0, -1);
 
 } // namespace nebulae
