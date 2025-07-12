@@ -82,11 +82,13 @@ Vector3D& Vector3D::operator/=(const float& scalar) {
 const Vector3D Vector3D::ZERO = Vector3D();
 const Vector3D Vector3D::UNIT = Vector3D(1, 1, 1);
 
-const Vector3D Vector3D::UP = Vector3D(1, 0, 0);
-const Vector3D Vector3D::DOWN = Vector3D(-1, 0, 0);
-const Vector3D Vector3D::RIGHT = Vector3D(0, 1, 0);
-const Vector3D Vector3D::LEFT = Vector3D(0, -1, 0);
+const Vector3D Vector3D::RIGHT = Vector3D(1, 0, 0);
+const Vector3D Vector3D::LEFT = -Vector3D::RIGHT;
+
+const Vector3D Vector3D::UP = Vector3D(0, 1, 0);
+const Vector3D Vector3D::DOWN = -Vector3D::UP;
+
 const Vector3D Vector3D::FORWARD = Vector3D(0, 0, 1);
-const Vector3D Vector3D::BACKWARD = Vector3D(0, 0, -1);
+const Vector3D Vector3D::BACKWARD = -Vector3D::FORWARD;
 
 } // namespace nebulae
