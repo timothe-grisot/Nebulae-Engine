@@ -4,6 +4,12 @@
 
 namespace nebulae {
 
+void Vector3D::set(const float& x, const float& y, const float& z) {
+    this->x = x;
+    this->y = y;
+    this->z = z;
+}
+
 double Vector3D::sqrMagnitude() const {
     return Vector3D::dot(*this, *this);
 }

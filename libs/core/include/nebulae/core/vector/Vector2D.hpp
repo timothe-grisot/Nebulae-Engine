@@ -13,6 +13,7 @@ class Vector2D {
     float x, y;
 
     // Methods
+    void set(const float&, const float&);
     double sqrMagnitude() const;
     double sqrMag() const;
     double magnitude() const;

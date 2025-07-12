@@ -4,6 +4,11 @@
 
 namespace nebulae {
 
+void Vector2D::set(const float& x, const float& y) {
+    this->x = x;
+    this->y = y;
+}
+
 double Vector2D::sqrMagnitude() const {
     return Vector2D::dot(*this, *this);
 }
