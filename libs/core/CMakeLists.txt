@@ -5,6 +5,7 @@ set(LIB_SOURCES
     src/vector/ops/Vector3D.cpp
     src/vector/Vector2D.cpp
     src/vector/Vector3D.cpp
+    src/Object.cpp
 )
 
 # Create library
