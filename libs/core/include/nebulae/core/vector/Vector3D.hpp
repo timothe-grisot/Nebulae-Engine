@@ -7,7 +7,6 @@ class Vector3D {
     // Constructors
     explicit Vector3D(const float& x, const float& y, const float& z) : x(x), y(y), z(z) {};
     explicit Vector3D() : Vector3D(0, 0, 0) {};
-    Vector3D(const Vector3D& v) : Vector3D(v.x, v.y, v.z) {};
 
     // Fields
     float x, y, z;

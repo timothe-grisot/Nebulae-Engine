@@ -7,7 +7,6 @@ class Vector2D {
     // Constructors
     explicit Vector2D(const float& x, const float& y) : x(x), y(y) {};
     explicit Vector2D() : Vector2D(0, 0) {};
-    Vector2D(const Vector2D& v) : Vector2D(v.x, v.y) {};
 
     // Fields
     float x, y;

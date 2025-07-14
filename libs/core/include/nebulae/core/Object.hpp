@@ -2,21 +2,19 @@
 
 #include <string>
 
+#include "nebulae/core/Identifier.hpp"
+#include "nebulae/core/comp/ComponentHolder.hpp"
+
 namespace nebulae {
 
-class Object {
+class Object : public Identifier, public ComponentHolder {
   public:
     // Constructors
-    explicit Object(const std::string& name) : id(COUNTER++), name(name) {};
-    explicit Object() : Object("Object_" + std::to_string(COUNTER)) {};
+    explicit Object(const std::string& name) : Identifier(), name(name) {};
+    explicit Object() : Object("Object") {};
 
     // Fields
-    unsigned long id;
     std::string name;
-
-  private:
-    // Static fields
-    inline static unsigned long COUNTER = 0;
 };
 
 } // namespace nebulae
