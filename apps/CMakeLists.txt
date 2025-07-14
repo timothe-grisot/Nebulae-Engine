@@ -5,6 +5,7 @@ set(EXE_SOURCES
 )
 set(EXE_DEPENDENCIES
     ${LIB_CORE}
+    ${LIB_COMPONENTS}
 )
 
 # Create executable
